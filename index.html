@@ -1824,11 +1824,11 @@
       </button>
       <button class="nav-pill" id="navBtn2" onclick="switchPage(2)">
         <span>2. รายชื่อ A–Z</span>
-        <span class="nav-badge" id="navRemainingBadge">39</span>
+        <span class="nav-badge" id="navRemainingBadge">40</span>
       </button>
       <button class="nav-pill" id="navBtn3" onclick="switchPage(3)">
         <span>3. กลุ่ม G1–G5</span>
-        <span class="nav-badge" id="navRegisteredBadge">0/39</span>
+        <span class="nav-badge" id="navRegisteredBadge">0/40</span>
       </button>
     </nav>
 
@@ -1869,7 +1869,7 @@
 
       <div class="hero-live-counter" onclick="switchPage(3)" title="คลิกเพื่อดูตารางกลุ่ม G1-G5">
         <span>ผู้เข้าร่วมลงทะเบียนแล้ว</span>
-        <div><span class="count-big" id="heroRegisteredCount">0 / 39</span> คน</div>
+        <div><span class="count-big" id="heroRegisteredCount">0 / 40</span> คน</div>
       </div>
 
       <!-- Clean Bottom-Center QR Code Pedestal (Only QR + SCAN TO JOIN, No Overlap) -->
@@ -1882,7 +1882,7 @@
     </section>
 
     <!-- =====================================================================
-         UI 2: NAME LIST (39 PARTICIPANTS SORTED A-Z)
+         UI 2: NAME LIST (40 PARTICIPANTS SORTED A-Z)
          ===================================================================== -->
     <section class="view-screen" id="viewNames" aria-label="Participant Name List A to Z">
       <div class="section-header-bar">
@@ -1910,11 +1910,11 @@
           <div class="status-metrics">
             <div class="metric-chip">
               <span>รอลงทะเบียน:</span>
-              <strong id="remainingCountText">39</strong>
+              <strong id="remainingCountText">40</strong>
             </div>
             <div class="metric-chip">
               <span>เข้ากลุ่มแล้ว:</span>
-              <strong id="checkedInCountText">0 / 39</strong>
+              <strong id="checkedInCountText">0 / 40</strong>
             </div>
             <button class="btn-glacier-secondary" onclick="switchPage(3)">
               <span>ดูตารางกลุ่ม G1–G5 →</span>
@@ -1924,13 +1924,13 @@
       </div>
 
       <div class="names-grid-container">
-        <!-- 39 Ice Cards Grid -->
+        <!-- 40 Ice Cards Grid -->
         <div class="names-grid" id="namesGrid"></div>
 
-        <!-- Shown when all 39 participants have registered -->
+        <!-- Shown when all 40 participants have registered -->
         <div class="all-complete-banner" id="allCompleteBanner">
           <div style="font-size: 3rem;">🏔️❄️🎉</div>
-          <h3 style="font-size: 1.6rem; color: #ffffff;">ผู้เข้าร่วมทั้ง 39 คนลงทะเบียนครบทุกกลุ่มแล้ว!</h3>
+          <h3 style="font-size: 1.6rem; color: #ffffff;">ผู้เข้าร่วมทั้ง 40 คนลงทะเบียนครบทุกกลุ่มแล้ว!</h3>
           <p style="color: #bae6fd;">ทุกคนพร้อมออกเดินทางฝ่าภารกิจ ON THIN ICE สามารถดูรายชื่อทั้ง 5 กลุ่มได้ในหน้าถัดไป</p>
           <button class="btn-glacier-primary" onclick="switchPage(3)">
             <span>ไปที่หน้าตารางกลุ่ม (G1–G5) →</span>
@@ -1954,10 +1954,10 @@
         <div class="section-controls">
           <div class="metric-chip">
             <span>ลงทะเบียนเข้ากลุ่มแล้ว:</span>
-            <strong id="groupTotalRegisteredText">0 / 39 คน</strong>
+            <strong id="groupTotalRegisteredText">0 / 40 คน</strong>
           </div>
           <button class="btn-glacier-primary" onclick="switchPage(2)">
-            <span>← กลับไปหน้าเลือกชื่อ (เหลือ <span id="backBtnRemainingCount">39</span> คน)</span>
+            <span>← กลับไปหน้าเลือกชื่อ (เหลือ <span id="backBtnRemainingCount">40</span> คน)</span>
           </button>
         </div>
       </div>
@@ -2019,7 +2019,7 @@
               <span class="group-short-code">G5</span>
               <span class="group-full-label">Group 5</span>
             </div>
-            <span class="group-count-badge" id="count-G5">0 / 7</span>
+            <span class="group-count-badge" id="count-G5">0 / 8</span>
           </div>
           <div class="group-roster-list" id="roster-G5"></div>
         </div>
@@ -2109,7 +2109,7 @@
             🔄 ซิงค์ข้อมูลล่าสุดจาก Sheet
           </button>
           <button class="btn-glacier-secondary" style="flex:1; justify-content:center; border-color: rgba(248,113,113,0.6); color: #fecaca;" onclick="resetAllDataPrompt()">
-            🗑️ รีเซ็ตการลงทะเบียนทั้งหมด (39 คน)
+            🗑️ รีเซ็ตการลงทะเบียนทั้งหมด (40 คน)
           </button>
         </div>
         <span class="settings-hint">
@@ -2135,8 +2135,8 @@
        ======================================================================= -->
   <script>
     /**
-     * 1. ข้อมูลรายชื่อผู้เข้าร่วมทั้งหมด 39 คน และกลุ่มที่กำหนดไว้ (G1 - G5)
-     * อ้างอิงตรงตาม Google Sheet (1H1mOeMVX1mFlmtD_1sYIofmIDL7YIVa1kAxfuxRmcCk) และรูป Name List By Group.png
+     * 1. ข้อมูลรายชื่อผู้เข้าร่วมทั้งหมด 40 คน และกลุ่มที่กำหนดไว้ (G1 - G5)
+     * อ้างอิงตรงตาม Google Sheet (1H1mOeMVX1mFlmtD_1sYIofmIDL7YIVa1kAxfuxRmcCk)
      */
     const SPREADSHEET_ID = '1H1mOeMVX1mFlmtD_1sYIofmIDL7YIVa1kAxfuxRmcCk';
 
@@ -2157,7 +2157,7 @@
       // Group 2 (8 คน)
       { name: 'Tip', group: 'G2', groupName: 'Group 2', order: 1 },
       { name: 'Ko', group: 'G2', groupName: 'Group 2', order: 2 },
-      { name: 'Kong', group: 'G2', groupName: 'Group 2', order: 3 },
+      { name: 'Gong', group: 'G2', groupName: 'Group 2', order: 3 },
       { name: 'Kate', group: 'G2', groupName: 'Group 2', order: 4 },
       { name: 'Pohn', group: 'G2', groupName: 'Group 2', order: 5 },
       { name: 'Top (GRM)', group: 'G2', groupName: 'Group 2', order: 6 },
@@ -2184,17 +2184,18 @@
       { name: 'Sang', group: 'G4', groupName: 'Group 4', order: 7 },
       { name: 'Jane', group: 'G4', groupName: 'Group 4', order: 8 },
 
-      // Group 5 (7 คน)
+      // Group 5 (8 คน)
       { name: 'Chit', group: 'G5', groupName: 'Group 5', order: 1 },
       { name: 'Deaw', group: 'G5', groupName: 'Group 5', order: 2 },
       { name: 'Moo', group: 'G5', groupName: 'Group 5', order: 3 },
       { name: 'Fon', group: 'G5', groupName: 'Group 5', order: 4 },
       { name: 'JoJo', group: 'G5', groupName: 'Group 5', order: 5 },
       { name: 'Lookmai', group: 'G5', groupName: 'Group 5', order: 6 },
-      { name: 'Khim', group: 'G5', groupName: 'Group 5', order: 7 }
+      { name: 'Khim', group: 'G5', groupName: 'Group 5', order: 7 },
+      { name: 'Jern', group: 'G5', groupName: 'Group 5', order: 8 }
     ];
 
-    const GROUP_MAX_COUNTS = { G1: 8, G2: 8, G3: 8, G4: 8, G5: 7 };
+    const GROUP_MAX_COUNTS = { G1: 8, G2: 8, G3: 8, G4: 8, G5: 8 };
 
     // State ของระบบ
     let participantsState = INITIAL_ROSTER.map(p => ({
@@ -2691,7 +2692,10 @@
                 rawStatus !== '' &&
                 rawStatus.toLowerCase() !== 'status'
               ) {
-                sheetRegisteredNames.add(rawName.toLowerCase());
+                const lowerName = rawName.toLowerCase();
+                sheetRegisteredNames.add(lowerName);
+                if (lowerName === 'kong') sheetRegisteredNames.add('gong');
+                if (lowerName === 'gong') sheetRegisteredNames.add('kong');
               }
             });
           });
@@ -2769,7 +2773,11 @@
       const remoteMap = new Map();
       remoteList.forEach(item => {
         if (item && item.name) {
-          remoteMap.set(String(item.name).trim().toLowerCase(), Boolean(item.registered));
+          const lower = String(item.name).trim().toLowerCase();
+          const reg = Boolean(item.registered);
+          remoteMap.set(lower, reg);
+          if (lower === 'kong') remoteMap.set('gong', reg);
+          if (lower === 'gong') remoteMap.set('kong', reg);
         }
       });
 
@@ -2924,7 +2932,7 @@
     }
 
     async function resetAllDataPrompt() {
-      if (!confirm('คุณต้องการรีเซ็ตสถานะการลงทะเบียนของทั้ง 39 คน ให้กลับมาเริ่มต้นใหม่ทั้งหมดใช่หรือไม่?')) {
+      if (!confirm('คุณต้องการรีเซ็ตสถานะการลงทะเบียนของทั้ง 40 คน ให้กลับมาเริ่มต้นใหม่ทั้งหมดใช่หรือไม่?')) {
         return;
       }
 
@@ -2947,7 +2955,7 @@
       }
 
       closeSettingsModal();
-      showToast('รีเซ็ตรายชื่อทั้ง 39 คนกลับมาหน้าเลือกชื่อเรียบร้อยแล้ว ❄️');
+      showToast('รีเซ็ตรายชื่อทั้ง 40 คนกลับมาหน้าเลือกชื่อเรียบร้อยแล้ว ❄️');
     }
 
     /**
@@ -2957,6 +2965,7 @@
 
     function triggerBlizzardSurge(durationMs = 2400) {
       blizzardBurstMultiplier = 4.2;
+      triggerAudioGaleSurge(durationMs);
       setTimeout(() => {
         blizzardBurstMultiplier = 1;
       }, durationMs);
@@ -3179,10 +3188,16 @@
     }
 
     /**
-     * 12. WEB AUDIO SYNTHESIZER (ICY CLICK, ICE SHATTER & GROUP CHIME)
+     * 12. 3-LAYER POLAR BLIZZARD & HOWLING WIND SOUNDSCAPE ENGINE (WEB AUDIO API)
+     * - Layer 1: Sub-Zero Deep Arctic Rumble (Lowpass Pink/Brown Noise)
+     * - Layer 2: Howling Polar Gale Wind (Dual-LFO Sweeping Resonant Bandpass)
+     * - Layer 3: Whipping Ice Dust & Snow Sibilance (High-Frequency Gust Shimmer)
+     * - Interactive Blizzard Surge when registering a participant
      */
     let soundEnabled = true;
     let audioCtx = null;
+    let blizzardAudioNodes = null;
+    let isBlizzardAmbientPlaying = false;
 
     function getAudioCtx() {
       if (!audioCtx && (window.AudioContext || window.webkitAudioContext)) {
@@ -3190,16 +3205,214 @@
         audioCtx = new AudioContextClass();
       }
       if (audioCtx && audioCtx.state === 'suspended') {
-        audioCtx.resume();
+        audioCtx.resume().catch(() => {});
       }
       return audioCtx;
     }
 
+    /**
+     * เริ่มต้นสร้างเสียงพายุหิมะและลมขั้วโลกแบบต่อเนื่อง (Procedural 3-Layer Blizzard Synth)
+     */
+    function startAmbientBlizzardSound() {
+      if (!soundEnabled || isBlizzardAmbientPlaying) return;
+      try {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+
+        // สร้าง Buffer เสียง Pink/Brown Noise ความยาว 6 วินาที แบบไร้รอยต่อ
+        const bufferDuration = 6;
+        const bufferSize = ctx.sampleRate * bufferDuration;
+        const noiseBuffer = ctx.createBuffer(2, bufferSize, ctx.sampleRate);
+
+        for (let ch = 0; ch < 2; ch++) {
+          const output = noiseBuffer.getChannelData(ch);
+          let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+          for (let i = 0; i < bufferSize; i++) {
+            const white = Math.random() * 2 - 1;
+            b0 = 0.99886 * b0 + white * 0.0555179;
+            b1 = 0.99332 * b1 + white * 0.0750759;
+            b2 = 0.96900 * b2 + white * 0.1538520;
+            b3 = 0.86650 * b3 + white * 0.3104856;
+            b4 = 0.55000 * b4 + white * 0.5329522;
+            b5 = -0.7616 * b5 - white * 0.0168980;
+            output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.045;
+            b6 = white * 0.115926;
+          }
+        }
+
+        // ตัวเล่น Noise Loop หลัก
+        const noiseSource = ctx.createBufferSource();
+        noiseSource.buffer = noiseBuffer;
+        noiseSource.loop = true;
+
+        // Master Gain สำหรับควบคุมความดังรวมของเสียงพายุ
+        const masterGain = ctx.createGain();
+        masterGain.gain.setValueAtTime(0.001, ctx.currentTime);
+        masterGain.gain.linearRampToValueAtTime(0.34, ctx.currentTime + 1.5);
+        masterGain.connect(ctx.destination);
+
+        // --- LAYER 1: SUB-ZERO DEEP RUMBLE (เสียงพายุทุ้มลึกขั้วโลก) ---
+        const rumbleFilter = ctx.createBiquadFilter();
+        rumbleFilter.type = 'lowpass';
+        rumbleFilter.frequency.setValueAtTime(145, ctx.currentTime);
+        const rumbleGain = ctx.createGain();
+        rumbleGain.gain.setValueAtTime(0.65, ctx.currentTime);
+        noiseSource.connect(rumbleFilter);
+        rumbleFilter.connect(rumbleGain);
+        rumbleGain.connect(masterGain);
+
+        // --- LAYER 2: HOWLING ARCTIC GALE (เสียงลมหวีดหวิวเป็นระลอก) ---
+        const howlFilter1 = ctx.createBiquadFilter();
+        howlFilter1.type = 'bandpass';
+        howlFilter1.frequency.setValueAtTime(420, ctx.currentTime);
+        howlFilter1.Q.setValueAtTime(4.8, ctx.currentTime);
+
+        const howlGain1 = ctx.createGain();
+        howlGain1.gain.setValueAtTime(0.55, ctx.currentTime);
+
+        // LFO 1 กวาดความถี่เสียงลมหวีดหวิวช้าๆ (0.13 Hz = รอบละ ~7.7 วินาที)
+        const howlLfo1 = ctx.createOscillator();
+        howlLfo1.type = 'sine';
+        howlLfo1.frequency.setValueAtTime(0.13, ctx.currentTime);
+        const howlLfoDepth1 = ctx.createGain();
+        howlLfoDepth1.gain.setValueAtTime(210, ctx.currentTime);
+        howlLfo1.connect(howlLfoDepth1);
+        howlLfoDepth1.connect(howlFilter1.frequency);
+
+        // LFO 2 สร้างจังหวะลมกระโชกซ้อนทับ (0.29 Hz)
+        const howlLfo2 = ctx.createOscillator();
+        howlLfo2.type = 'triangle';
+        howlLfo2.frequency.setValueAtTime(0.29, ctx.currentTime);
+        const howlLfoDepth2 = ctx.createGain();
+        howlLfoDepth2.gain.setValueAtTime(95, ctx.currentTime);
+        howlLfo2.connect(howlLfoDepth2);
+        howlLfoDepth2.connect(howlFilter1.frequency);
+
+        noiseSource.connect(howlFilter1);
+        howlFilter1.connect(howlGain1);
+        howlGain1.connect(masterGain);
+
+        // --- LAYER 3: ICE DUST & SNOW SIBILANCE (เสียงเกล็ดน้ำแข็งซัดผ่านอากาศ) ---
+        const iceDustFilter = ctx.createBiquadFilter();
+        iceDustFilter.type = 'bandpass';
+        iceDustFilter.frequency.setValueAtTime(2100, ctx.currentTime);
+        iceDustFilter.Q.setValueAtTime(2.2, ctx.currentTime);
+
+        const iceDustGain = ctx.createGain();
+        iceDustGain.gain.setValueAtTime(0.16, ctx.currentTime);
+
+        const dustLfo = ctx.createOscillator();
+        dustLfo.type = 'sine';
+        dustLfo.frequency.setValueAtTime(0.19, ctx.currentTime);
+        const dustLfoDepth = ctx.createGain();
+        dustLfoDepth.gain.setValueAtTime(0.10, ctx.currentTime);
+        dustLfo.connect(dustLfoDepth);
+        dustLfoDepth.connect(iceDustGain.gain);
+
+        noiseSource.connect(iceDustFilter);
+        iceDustFilter.connect(iceDustGain);
+        iceDustGain.connect(masterGain);
+
+        // เริ่มการทำงานของทุก Generator
+        noiseSource.start();
+        howlLfo1.start();
+        howlLfo2.start();
+        dustLfo.start();
+
+        blizzardAudioNodes = {
+          noiseSource,
+          masterGain,
+          rumbleFilter,
+          howlFilter1,
+          howlGain1,
+          iceDustFilter,
+          iceDustGain
+        };
+        isBlizzardAmbientPlaying = true;
+        updateSoundButtonVisual();
+      } catch (e) {
+        console.warn('Ambient blizzard audio init error:', e);
+      }
+    }
+
+    /**
+     * เร่งเสียงลมพายุโหมกระหน่ำเมื่อกดยืนยันลงทะเบียน (Blizzard Surge)
+     */
+    function triggerAudioGaleSurge(durationMs = 2400) {
+      if (!soundEnabled) return;
+      if (!isBlizzardAmbientPlaying) {
+        startAmbientBlizzardSound();
+      }
+      if (!blizzardAudioNodes || !audioCtx) return;
+
+      try {
+        const now = audioCtx.currentTime;
+        const durSec = durationMs / 1000;
+        const { masterGain, howlFilter1, iceDustGain } = blizzardAudioNodes;
+
+        // เร่งความดังพายุและความถี่ลมหวีดหวิวขึ้นอย่างเร้าใจ
+        masterGain.gain.cancelScheduledValues(now);
+        masterGain.gain.setValueAtTime(masterGain.gain.value || 0.34, now);
+        masterGain.gain.linearRampToValueAtTime(0.72, now + 0.25);
+        masterGain.gain.exponentialRampToValueAtTime(0.34, now + durSec);
+
+        howlFilter1.frequency.setValueAtTime(760, now + 0.2);
+        howlFilter1.frequency.exponentialRampToValueAtTime(420, now + durSec);
+
+        iceDustGain.gain.setValueAtTime(0.38, now + 0.15);
+        iceDustGain.gain.linearRampToValueAtTime(0.16, now + durSec);
+      } catch (e) {}
+    }
+
+    function updateSoundButtonVisual() {
+      const btn = document.getElementById('soundToggleBtn');
+      if (!btn) return;
+      btn.textContent = soundEnabled ? '🔊' : '🔇';
+      btn.style.boxShadow = (soundEnabled && isBlizzardAmbientPlaying)
+        ? '0 0 16px rgba(92, 225, 230, 0.75)'
+        : '';
+      btn.style.borderColor = (soundEnabled && isBlizzardAmbientPlaying)
+        ? '#ffffff'
+        : '';
+    }
+
     function toggleArcticSound() {
       soundEnabled = !soundEnabled;
-      document.getElementById('soundToggleBtn').textContent = soundEnabled ? '🔊' : '🔇';
-      if (soundEnabled) playIceClickSound();
+      const ctx = getAudioCtx();
+
+      if (soundEnabled) {
+        if (!isBlizzardAmbientPlaying) {
+          startAmbientBlizzardSound();
+        } else if (blizzardAudioNodes && ctx) {
+          const now = ctx.currentTime;
+          blizzardAudioNodes.masterGain.gain.cancelScheduledValues(now);
+          blizzardAudioNodes.masterGain.gain.setValueAtTime(0.01, now);
+          blizzardAudioNodes.masterGain.gain.linearRampToValueAtTime(0.34, now + 0.5);
+        }
+        playIceClickSound();
+        showToast('🔊 เปิดเสียงพายุหิมะและลมขั้วโลก');
+      } else {
+        if (blizzardAudioNodes && ctx) {
+          const now = ctx.currentTime;
+          blizzardAudioNodes.masterGain.gain.cancelScheduledValues(now);
+          blizzardAudioNodes.masterGain.gain.setValueAtTime(blizzardAudioNodes.masterGain.gain.value, now);
+          blizzardAudioNodes.masterGain.gain.linearRampToValueAtTime(0.0001, now + 0.35);
+        }
+        showToast('🔇 ปิดเสียงพายุหิมะแล้ว');
+      }
+      updateSoundButtonVisual();
     }
+
+    // ปลดล็อกและเริ่มเล่นเสียงพายุหิมะอัตโนมัติเมื่อผู้ใช้คลิกหรือแตะหน้าจอครั้งแรก
+    function unlockPolarAudioOnInteraction() {
+      if (soundEnabled && !isBlizzardAmbientPlaying) {
+        startAmbientBlizzardSound();
+      } else if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume().catch(() => {});
+      }
+    }
+    window.addEventListener('pointerdown', unlockPolarAudioOnInteraction, { passive: true });
+    window.addEventListener('keydown', unlockPolarAudioOnInteraction, { passive: true });
 
     function playIceClickSound() {
       if (!soundEnabled) return;
