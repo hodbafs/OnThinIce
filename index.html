@@ -248,38 +248,191 @@
       pointer-events: none;
     }
 
-    /* Floating Exit-Fullscreen Pill when in Fullscreen Mode */
-    .floating-fullscreen-exit {
+    /* =========================================================================
+       FULLSCREEN FLOATING BOTTOM GLASS DOCK (VISIONOS / ANTI-AI SLOP)
+       ========================================================================= */
+    .fullscreen-glass-dock {
       position: fixed;
-      top: 18px;
-      right: 24px;
-      z-index: 45;
-      display: none;
+      bottom: 20px;
+      left: 50%;
+      z-index: 48;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px;
+      border-radius: 999px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.14) 0%,
+        rgba(10, 24, 46, 0.42) 100%
+      );
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow:
+        0 20px 48px rgba(0, 4, 14, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(22px) saturate(165%);
+      -webkit-backdrop-filter: blur(22px) saturate(165%);
+      transform: translate(-50%, 32px) scale(0.96);
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.28s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+    }
+
+    body.cinema-fullscreen .fullscreen-glass-dock {
+      transform: translate(-50%, 0) scale(1);
+      opacity: 0.76;
+      pointer-events: auto;
+    }
+
+    body.cinema-fullscreen .fullscreen-glass-dock:hover,
+    body.cinema-fullscreen .fullscreen-glass-dock:focus-within {
+      opacity: 1;
+      border-color: rgba(255, 255, 255, 0.42);
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.18) 0%,
+        rgba(8, 22, 44, 0.56) 100%
+      );
+      box-shadow:
+        0 24px 56px rgba(0, 4, 14, 0.72),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.14);
+    }
+
+    .dock-pill {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      color: rgba(240, 249, 255, 0.78);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.01em;
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(4, 18, 38, 0.55);
-      border: 1px solid rgba(165, 243, 252, 0.42);
-      color: #e0f2fe;
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      font-weight: 600;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      opacity: 0.38;
-      transition: all 0.25s ease;
+      white-space: nowrap;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.18s ease,
+        box-shadow 0.2s ease;
     }
 
-    .floating-fullscreen-exit:hover {
+    .dock-pill svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      opacity: 0.82;
+      flex-shrink: 0;
+    }
+
+    .dock-pill:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .dock-pill:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.75);
+      outline-offset: 2px;
+    }
+
+    .dock-pill:active {
+      transform: scale(0.97);
+    }
+
+    .dock-pill.active {
+      color: #ffffff;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.22) 0%,
+        rgba(255, 255, 255, 0.10) 100%
+      );
+      border-color: rgba(255, 255, 255, 0.34);
+      box-shadow:
+        0 4px 16px rgba(0, 6, 18, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+
+    .dock-pill.active svg {
       opacity: 1;
-      background: rgba(14, 116, 144, 0.82);
-      border-color: #ffffff;
-      box-shadow: 0 0 18px rgba(92, 225, 230, 0.6);
     }
 
-    body.cinema-fullscreen .floating-fullscreen-exit {
+    .dock-count {
       display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      background: rgba(4, 14, 28, 0.48);
+      color: #e0f2fe;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      line-height: 1.2;
+    }
+
+    .dock-pill.active .dock-count {
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.42);
+    }
+
+    .dock-divider {
+      width: 1px;
+      height: 22px;
+      margin: 0 4px;
+      background: rgba(255, 255, 255, 0.2);
+      flex-shrink: 0;
+    }
+
+    .dock-exit-btn {
+      appearance: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(240, 249, 255, 0.85);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .dock-exit-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .dock-exit-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.38);
+      transform: scale(1.05);
+    }
+
+    .dock-exit-btn:active {
+      transform: scale(0.95);
     }
 
     .hud-brand {
@@ -329,59 +482,96 @@
       opacity: 0.85;
     }
 
-    /* Step Switcher Pills (UI 1 / UI 2 / UI 3) */
+    /* Step Switcher Pills (UI 1 / UI 2 / UI 3 — Optical Glass Style) */
     .hud-nav {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(5, 19, 41, 0.72);
-      padding: 5px;
+      gap: 4px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.10) 0%,
+        rgba(8, 22, 44, 0.56) 100%
+      );
+      padding: 4px;
       border-radius: 999px;
-      border: 1px solid rgba(165, 243, 252, 0.28);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow:
+        0 8px 24px rgba(0, 4, 14, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(16px) saturate(150%);
+      -webkit-backdrop-filter: blur(16px) saturate(150%);
     }
 
     .nav-pill {
       appearance: none;
       border: 1px solid transparent;
       background: transparent;
-      color: #bae6fd;
+      color: rgba(224, 242, 254, 0.78);
       font-family: var(--font-body);
       font-weight: 600;
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       padding: 6px 14px;
       border-radius: 999px;
       cursor: pointer;
-      transition: all 0.22s ease;
-      display: flex;
+      transition: all 0.2s ease;
+      display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       white-space: nowrap;
+    }
+
+    .nav-pill svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      opacity: 0.82;
+      flex-shrink: 0;
     }
 
     .nav-pill:hover {
       color: #ffffff;
-      background: rgba(56, 189, 248, 0.16);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .nav-pill.active {
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.38), rgba(14, 116, 144, 0.65));
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.22) 0%,
+        rgba(255, 255, 255, 0.10) 100%
+      );
       color: #ffffff;
-      border-color: var(--ice-border-bright);
-      box-shadow: 0 0 16px rgba(92, 225, 230, 0.45);
+      border-color: rgba(255, 255, 255, 0.34);
+      box-shadow:
+        0 4px 14px rgba(0, 6, 18, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.48);
+    }
+
+    .nav-pill.active svg {
+      opacity: 1;
     }
 
     .nav-badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 1px 7px;
-      border-radius: 99px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-family: var(--font-display);
       font-size: 0.72rem;
       font-weight: 700;
-      background: rgba(3, 11, 23, 0.65);
-      color: var(--ice-cyan-bright);
-      border: 1px solid rgba(165, 243, 252, 0.35);
+      font-variant-numeric: tabular-nums;
+      background: rgba(4, 14, 28, 0.48);
+      color: #e0f2fe;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      line-height: 1.2;
+    }
+
+    .nav-pill.active .nav-badge {
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.42);
     }
 
     /* Right HUD Controls */
@@ -468,6 +658,10 @@
       flex-direction: column;
       justify-content: space-between;
       animation: viewFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    body.cinema-fullscreen .view-screen {
+      padding: 24px 24px 88px;
     }
 
     .view-screen.active {
@@ -591,7 +785,7 @@
     }
 
     body.cinema-fullscreen .hero-live-counter {
-      top: 66px;
+      top: 24px;
     }
 
     .hero-live-counter:hover {
@@ -1790,11 +1984,44 @@
   <canvas id="blizzardCanvas" aria-hidden="true"></canvas>
   <div class="whiteout-flash" id="whiteoutFlash" aria-hidden="true"></div>
 
-  <!-- Floating Exit Button when in Fullscreen Mode -->
-  <button class="floating-fullscreen-exit" onclick="toggleCinemaFullscreen()" title="ออกจากโหมดขยายเต็มจอ (หรือกด ESC)">
-    <span>🗗</span>
-    <span>ย่อหน้าจอ / แสดงเมนู</span>
-  </button>
+  <!-- Floating Bottom VisionOS Optical Glass Dock when in Fullscreen Mode -->
+  <nav class="fullscreen-glass-dock" id="fullscreenGlassDock" aria-label="เมนูนำทางโหมดเต็มจอ">
+    <button type="button" class="dock-pill active" id="dockBtn1" onclick="switchPage(1)">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="m8 3 4 8 5-5 5 15H2L8 3z"/>
+      </svg>
+      <span>หน้าหลัก</span>
+    </button>
+    <button type="button" class="dock-pill" id="dockBtn2" onclick="switchPage(2)">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+      <span>รายชื่อ</span>
+      <span class="dock-count" id="dockRemainingBadge">40</span>
+    </button>
+    <button type="button" class="dock-pill" id="dockBtn3" onclick="switchPage(3)">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+        <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+        <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+        <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+      </svg>
+      <span>กลุ่ม G1–G5</span>
+      <span class="dock-count" id="dockRegisteredBadge">0/40</span>
+    </button>
+    <span class="dock-divider" aria-hidden="true"></span>
+    <button type="button" class="dock-exit-btn" onclick="toggleCinemaFullscreen()" title="ย่อหน้าจอ / แสดงแถบเมนูด้านบน (ESC)" aria-label="ออกจากโหมดเต็มจอ">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M8 3v3a2 2 0 0 1-2 2H3"/>
+        <path d="M21 8h-3a2 2 0 0 1-2-2V3"/>
+        <path d="M3 16h3a2 2 0 0 1 2 2v3"/>
+        <path d="M16 21v-3a2 2 0 0 1 2-2h3"/>
+      </svg>
+    </button>
+  </nav>
 
   <!-- Flying Name Crystal Shard for UI 2 -> UI 3 Transition -->
   <div class="flying-name-shard" id="flyingShard">
@@ -1810,7 +2037,7 @@
        TOP EXPEDITION HUD & STEP SWITCHER
        ======================================================================= -->
   <header class="top-hud">
-    <div class="hud-brand" onclick="switchPage(1)" title="กลับหน้า Hero">
+    <div class="hud-brand" onclick="switchPage(1)" title="กลับหน้าหลัก">
       <div class="hud-snowflake">❄️</div>
       <div class="hud-title-wrap">
         <div class="hud-title">ON THIN ICE</div>
@@ -1819,15 +2046,30 @@
     </div>
 
     <nav class="hud-nav" aria-label="Main Screen Navigation">
-      <button class="nav-pill active" id="navBtn1" onclick="switchPage(1)">
-        <span>1. HERO</span>
+      <button type="button" class="nav-pill active" id="navBtn1" onclick="switchPage(1)">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m8 3 4 8 5-5 5 15H2L8 3z"/>
+        </svg>
+        <span>หน้าหลัก</span>
       </button>
-      <button class="nav-pill" id="navBtn2" onclick="switchPage(2)">
-        <span>2. รายชื่อ A–Z</span>
+      <button type="button" class="nav-pill" id="navBtn2" onclick="switchPage(2)">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <span>รายชื่อ</span>
         <span class="nav-badge" id="navRemainingBadge">40</span>
       </button>
-      <button class="nav-pill" id="navBtn3" onclick="switchPage(3)">
-        <span>3. กลุ่ม G1–G5</span>
+      <button type="button" class="nav-pill" id="navBtn3" onclick="switchPage(3)">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+          <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+        </svg>
+        <span>กลุ่ม G1–G5</span>
         <span class="nav-badge" id="navRegisteredBadge">0/40</span>
       </button>
     </nav>
@@ -1865,11 +2107,6 @@
         <div>EXPEDITION: <strong>ON THIN ICE</strong></div>
         <div>DATE: <strong>06 NOV 2026</strong></div>
         <div>CONDITIONS: <strong id="telemetryTemp">-42.6°C • BLIZZARD WARNING</strong></div>
-      </div>
-
-      <div class="hero-live-counter" onclick="switchPage(3)" title="คลิกเพื่อดูตารางกลุ่ม G1-G5">
-        <span>ผู้เข้าร่วมลงทะเบียนแล้ว</span>
-        <div><span class="count-big" id="heroRegisteredCount">0 / 40</span> คน</div>
       </div>
 
       <!-- Clean Bottom-Center QR Code Pedestal (Only QR + SCAN TO JOIN, No Overlap) -->
@@ -2288,6 +2525,13 @@
       document.getElementById('navBtn2').classList.toggle('active', pageNum === 2);
       document.getElementById('navBtn3').classList.toggle('active', pageNum === 3);
 
+      const d1 = document.getElementById('dockBtn1');
+      const d2 = document.getElementById('dockBtn2');
+      const d3 = document.getElementById('dockBtn3');
+      if (d1) d1.classList.toggle('active', pageNum === 1);
+      if (d2) d2.classList.toggle('active', pageNum === 2);
+      if (d3) d3.classList.toggle('active', pageNum === 3);
+
       if (playSound) {
         playIceClickSound();
       }
@@ -2304,10 +2548,15 @@
       const registeredList = participantsState.filter(p => p.registered);
       const unregisteredList = participantsState.filter(p => !p.registered);
 
-      // อัปเดตตัวเลขบน HUD และ Hero
+      // อัปเดตตัวเลขบน HUD, Bottom Glass Dock และ Hero
       document.getElementById('navRemainingBadge').textContent = String(unregisteredList.length);
       document.getElementById('navRegisteredBadge').textContent = `${registeredList.length}/${total}`;
-      document.getElementById('heroRegisteredCount').textContent = `${registeredList.length} / ${total}`;
+      const dockRem = document.getElementById('dockRemainingBadge');
+      const dockReg = document.getElementById('dockRegisteredBadge');
+      if (dockRem) dockRem.textContent = String(unregisteredList.length);
+      if (dockReg) dockReg.textContent = `${registeredList.length}/${total}`;
+      const heroReg = document.getElementById('heroRegisteredCount');
+      if (heroReg) heroReg.textContent = `${registeredList.length} / ${total}`;
       document.getElementById('remainingCountText').textContent = `${unregisteredList.length} คน`;
       document.getElementById('checkedInCountText').textContent = `${registeredList.length} / ${total}`;
       document.getElementById('groupTotalRegisteredText').textContent = `${registeredList.length} / ${total} คน`;
